@@ -29,7 +29,7 @@ app.use(limiter);
 
 //mongo db connection
 
-let URI=`mongodb+srv://inventory107:inventory107@cluster0.mpddpgg.mongodb.net/?retryWrites=true&w=majority`;
+let URI=`mongodb+srv://inventory107:${process.env.pass}@cluster0.mpddpgg.mongodb.net/?retryWrites=true&w=majority`;
 
 //"mongodb+srv://<username>:<password>@cluster0.m8fxg.mongodb.net/CRUD?retryWrites=true&w=majority"
 
