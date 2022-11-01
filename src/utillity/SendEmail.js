@@ -3,11 +3,11 @@ const nodemailer = require('nodemailer');
 const SendEmail = async (EmailTo, EmailText, EmailSubject) => {
 
     let transporter = nodemailer.createTransport({
-        host: 'noreply@gmail.com',
+        host: 'ra@gmail.com',
         port: 25,
         secure: false,
         auth: {
-            user: "info@gmail.com",
+            user: "bc@gmail.com",
             pass: '~sR4[bhaC[Qs'
         },tls: {
             rejectUnauthorized: false
@@ -15,7 +15,7 @@ const SendEmail = async (EmailTo, EmailText, EmailSubject) => {
     });
 
     let mailOptions = {
-        from: 'Inventory <applerb326@gmail.com>',
+        from: 'Inventory <ra@gmail.com>',
         to: EmailTo,
         subject: EmailSubject,
         text: EmailText
