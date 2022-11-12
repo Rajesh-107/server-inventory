@@ -3,6 +3,7 @@ const AuthVerifyMiddleware = require("../middlewares/AuthVerifymiddleware")
 
 const UsersController = require("../controllers/Users/UsersController")
 const BrandsController = require("../controllers/Brands/BrandsController")
+const SuppliersController = require("../controllers/Suppliers/SuppliersController")
 
 const router = express.Router()
 
@@ -22,6 +23,9 @@ router.get("/BrandList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, B
 router.get("/BrandDropDown", AuthVerifyMiddleware, BrandsController.BrandDropDown)
 
 //categories
-
+router.post("/CreateSuppliers", AuthVerifyMiddleware, SuppliersController.CreateSuppliers)
+router.post("/UpdateSuppliers/:id", AuthVerifyMiddleware, SuppliersController.UpdateSuppliers)
+router.get("/SuppliersList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, SuppliersController.SuppliersList)
+router.get("/CategoriesDropDown", AuthVerifyMiddleware,SuppliersController.SuppliersList)
 
 module.exports = router;
