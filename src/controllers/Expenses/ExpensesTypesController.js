@@ -8,3 +8,15 @@ exports.CreateExpenseTypes = async(req, res) => {
     let Result = await CreateService(req, DataModel)
     res.status(200).json(Result)
 }
+
+exports.UpdateExpenseTypes=async (req, res) => {
+    let Result = await UpdateService(req, DataModel)
+    res.send(200).json(Result)
+}
+
+exports.ExpenseTypesList = async (req, res) =>{
+    let SearchRgx = {"$regex": req.params.searchKeyword, "$option":"i"}
+    let SearchArray = [{Name: SearchRgx}]
+    let Result = await ListService(req, DataModel, SearchArray)
+    res.status(200).json(Result)
+}
