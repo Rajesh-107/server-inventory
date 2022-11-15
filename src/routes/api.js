@@ -36,4 +36,10 @@ router.post("/UpdateCustomers", AuthVerifyMiddleware,CustomersController.UpdateC
 router.get("/CustomersList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, CustomersController.CustomersList)
 router.get("/CustomersDropDown", AuthVerifyMiddleware, CustomersController.CustomersDropDown)
 
+//suppliers
+router.post('/CreateSuppliers', AuthVerifyMiddleware, SuppliersController.CreateSuppliers);
+router.post("/UpdateSuppliers", AuthVerifyMiddleware,SuppliersController.UpdateSuppliers);
+router.get("/SuppliersList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, SuppliersController.SuppliersList)
+router.get("/CategoriesDropDown", AuthVerifyMiddleware, SuppliersController.CategoriesDropDown)
+
 module.exports = router;
