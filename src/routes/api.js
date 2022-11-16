@@ -6,6 +6,7 @@ const BrandsController = require("../controllers/Brands/BrandsController")
 const SuppliersController = require("../controllers/Suppliers/SuppliersController")
 const CategoriesController = require("../controllers/Categories/CategoriesController")
 const CustomersController = require("../controllers/Customers/CustomersController")
+const ExpensesTypesController = require("../controllers/Expenses/ExpensesTypesController")
 
 const router = express.Router()
 
@@ -32,14 +33,20 @@ router.get("/CategoriesDropDown", AuthVerifyMiddleware,CategoriesController.Cate
 
 //Customers
 router.post("/CreateCustomers", AuthVerifyMiddleware,CustomersController.CreateCustomers)
-router.post("/UpdateCustomers", AuthVerifyMiddleware,CustomersController.UpdateCustomers)
+router.post("/UpdateCustomers/:id", AuthVerifyMiddleware,CustomersController.UpdateCustomers)
 router.get("/CustomersList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, CustomersController.CustomersList)
 router.get("/CustomersDropDown", AuthVerifyMiddleware, CustomersController.CustomersDropDown)
 
 //suppliers
 router.post('/CreateSuppliers', AuthVerifyMiddleware, SuppliersController.CreateSuppliers);
-router.post("/UpdateSuppliers", AuthVerifyMiddleware,SuppliersController.UpdateSuppliers);
+router.post("/UpdateSuppliers/:id", AuthVerifyMiddleware,SuppliersController.UpdateSuppliers);
 router.get("/SuppliersList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware, SuppliersController.SuppliersList)
 router.get("/SuppliersDropDown", AuthVerifyMiddleware, SuppliersController.CategoriesDropDown)
+
+//ExpensesTypes
+router.post("/CreateExpenseTypes", AuthVerifyMiddleware,ExpensesTypesController.CreateExpenseTypes)
+router.post("/UpdateExpenseTypes/:id", AuthVerifyMiddleware, ExpensesTypesController.UpdateExpenseTypes)
+router.get("/ExpenseTypesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware,ExpensesTypesController.ExpenseTypesList)
+router.get("/ExpenseTypesDropDown",AuthVerifyMiddleware,ExpensesTypesController.ExpenseTypesDropDown)
 
 module.exports = router;

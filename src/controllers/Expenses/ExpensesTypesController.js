@@ -20,3 +20,8 @@ exports.ExpenseTypesList = async (req, res) =>{
     let Result = await ListService(req, DataModel, SearchArray)
     res.status(200).json(Result)
 }
+
+exports.ExpenseTypesDropDown = async (req, res) => {
+    let Result = await DropDownService(req, DataModel, {_id:1, Name:1})
+    res.status(200).json(Result)
+}
