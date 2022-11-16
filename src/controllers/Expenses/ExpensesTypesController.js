@@ -10,8 +10,8 @@ exports.CreateExpenseTypes = async(req, res) => {
 }
 
 exports.UpdateExpenseTypes=async (req, res) => {
-    let Result = await UpdateService(req, DataModel)
-    res.send(200).json(Result)
+    let Result = await UpdateService(req,DataModel)
+    res.status(200).json(Result)
 }
 
 exports.ExpenseTypesList = async (req, res) =>{
