@@ -7,6 +7,7 @@ const SuppliersController = require("../controllers/Suppliers/SuppliersControlle
 const CategoriesController = require("../controllers/Categories/CategoriesController")
 const CustomersController = require("../controllers/Customers/CustomersController")
 const ExpensesTypesController = require("../controllers/Expenses/ExpensesTypesController")
+const ExpensesController = require("../controllers/Expenses/ExpensesController")
 
 const router = express.Router()
 
@@ -48,5 +49,9 @@ router.post("/CreateExpenseTypes", AuthVerifyMiddleware,ExpensesTypesController.
 router.post("/UpdateExpenseTypes/:id", AuthVerifyMiddleware, ExpensesTypesController.UpdateExpenseTypes)
 router.get("/ExpenseTypesList/:pageNo/:perPage/:searchKeyword", AuthVerifyMiddleware,ExpensesTypesController.ExpenseTypesList)
 router.get("/ExpenseTypesDropDown",AuthVerifyMiddleware,ExpensesTypesController.ExpenseTypesDropDown)
+
+//Expenses
+router.post("/CreateExpenses",AuthVerifyMiddleware,ExpensesController.CreateExpenses);
+router.post("/UpdateExpenses",AuthVerifyMiddleware,ExpensesController.UpdateExpenses);
 
 module.exports = router;
