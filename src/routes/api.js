@@ -53,5 +53,6 @@ router.get("/ExpenseTypesDropDown",AuthVerifyMiddleware,ExpensesTypesController.
 //Expenses
 router.post("/CreateExpenses",AuthVerifyMiddleware,ExpensesController.CreateExpenses);
 router.post("/UpdateExpenses",AuthVerifyMiddleware,ExpensesController.UpdateExpenses);
+router.get("/ExpensesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,ExpensesController.ExpensesList);
 
 module.exports = router;

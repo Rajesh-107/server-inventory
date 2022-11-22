@@ -13,13 +13,10 @@ exports.UpdateExpenses = async(req, res) => {
     res.status(200).json(Result)
 }
 
-exports.ExpensesList = async (req, res) => {
-
-    let SearchRgx = {"regex": req.params.searchKeyword, "$options": "i"}
-    let SearchArray = [{Note: SearchRgx}, {Amount: SearchRgx}, {'Type.Name': SearchRgx}]
-    let JoinStage = {$lookup: {from: "expenseTypes", localField: "TypeID", foreignField: "_id", as: "Type"}}
-
-    let Result = await ListOnejoinService(req,DataModel, SearchArray, JoinStage)
-
+exports.ExpensesList=async (req, res) => {
+    let SearchRgx = {"$regex": req.params.searchKeyword, "$options": "i"}
+    let SearchArray=[{Note: SearchRgx},{'Type.Name': SearchRgx}]
+    let JoinStage= {$lookup: {from: "expensetypes", localField: "TypeID", foreignField: "_id", as: "Type"}}
+    let Result=await ListOnejoinService(req,DataModel,SearchArray,JoinStage);
     res.status(200).json(Result)
 }
