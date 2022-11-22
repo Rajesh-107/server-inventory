@@ -8,6 +8,7 @@ const CategoriesController = require("../controllers/Categories/CategoriesContro
 const CustomersController = require("../controllers/Customers/CustomersController")
 const ExpensesTypesController = require("../controllers/Expenses/ExpensesTypesController")
 const ExpensesController = require("../controllers/Expenses/ExpensesController")
+const ProductsController = require("../controllers/Products/ProductsController")
 
 const router = express.Router()
 
@@ -54,5 +55,9 @@ router.get("/ExpenseTypesDropDown",AuthVerifyMiddleware,ExpensesTypesController.
 router.post("/CreateExpenses",AuthVerifyMiddleware,ExpensesController.CreateExpenses);
 router.post("/UpdateExpenses",AuthVerifyMiddleware,ExpensesController.UpdateExpenses);
 router.get("/ExpensesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,ExpensesController.ExpensesList);
+
+//Products
+router.post("/CreateProducts", AuthVerifyMiddleware,ProductsController.CreateProducts)
+router.post("/UpdateProducts/:id", AuthVerifyMiddleware,ProductsController.UpdateProducts)
 
 module.exports = router;
